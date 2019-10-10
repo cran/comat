@@ -7,7 +7,7 @@
 get_incoma(x, neighbourhood = 4)
 }
 \arguments{
-\item{x}{A RasterStack object containing categorical rasters}
+\item{x}{A list object containing categorical matrices with categories}
 
 \item{neighbourhood}{The number of directions in which cell adjacencies are considered as neighbours:
 4 (rook's case) or 8 (queen's case). The default is 4.}
@@ -19,12 +19,9 @@ An integrated co-occurrence matrix
 Create an integrated co-occurrence matrix (wecoma)
 }
 \examples{
-library(raster)
+data(raster_x, package = "comat")
+data(raster_w, package = "comat")
+x = list(raster_x, raster_w, raster_x)
 
-l1 = raster(matrix(sample(1:2, size = 100, replace = TRUE), ncol = 10))
-l2 = raster(matrix(sample(c(9, 6, 3), size = 100, replace = TRUE), ncol = 10))
-x = stack(l1, l2, l1)
-
-get_incoma(x)
 
 }

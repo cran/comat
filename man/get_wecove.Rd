@@ -4,14 +4,19 @@
 \alias{get_wecove}
 \title{Create a weighted co-occurrence vector (wecove)}
 \usage{
-get_wecove(x, ordered = TRUE)
+get_wecove(x, ordered = TRUE, normalization = "none")
 }
 \arguments{
 \item{x}{A matrix - an output of the \code{\link[=get_wecoma]{get_wecoma()}} function}
 
 \item{ordered}{The type of pairs considered.
-Either ordered (TRUE) or unordered (FALSE).
+Either "ordered" (TRUE) or "unordered" (FALSE).
 The default is TRUE.}
+
+\item{normalization}{Should the output vector be normalized?
+Either "none" or "pdf".
+The "pdf" option normalizes a vector to sum to one.
+The default is "none".}
 }
 \value{
 A weighted co-occurrence vector
@@ -22,11 +27,10 @@ a weighted co-occurrence vector (wecove)
 }
 \examples{
 library(comat)
-library(raster)
-data(x, package = "comat")
-data(w, package = "comat")
+data(raster_x, package = "comat")
+data(raster_w, package = "comat")
 
-wom = get_wecoma(x, w)
+wom = get_wecoma(raster_x, raster_w)
 wom
 
 wov = get_wecove(wom)

@@ -8,9 +8,9 @@ get_wecoma(x, w, neighbourhood = 4, fun = "mean",
   na_action = "replace")
 }
 \arguments{
-\item{x}{A RasterLayer with categories}
+\item{x}{A matrix with categories}
 
-\item{w}{A RasterLayer with weights}
+\item{w}{A matrix with weights}
 
 \item{neighbourhood}{The number of directions in which cell adjacencies are considered as neighbours:
 4 (rook's case) or 8 (queen's case). The default is 4.}
@@ -27,13 +27,10 @@ Create a weighted co-occurrence matrix (wecoma)
 }
 \examples{
 library(comat)
-library(raster)
-data(x, package = "comat")
-data(w, package = "comat")
-plot(x)
-plot(w)
+data(raster_x, package = "comat")
+data(raster_w, package = "comat")
 
-wom = get_wecoma(x, w)
+wom = get_wecoma(raster_x, raster_w)
 wom
 
 }

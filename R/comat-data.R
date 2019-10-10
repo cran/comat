@@ -1,19 +1,19 @@
-#' A RasterLayer with categories
-#'
-#' @format A RasterLayer
-"x"
+#' A matrix with categories
+#' @usage data(raster_x)
+#' @format A matrix
+"raster_x"
 
-#' A RasterLayer with weights
-#'
-#' @format A RasterLayer
-"w"
+#' A matrix with weights
+#' @usage data(raster_w)
+#' @format A matrix
+"raster_w"
 
-#' A RasterLayer with categories and missing values
-#'
-#' @format A RasterLayer
-"x_na"
+#' A matrix with categories and missing values
+#' @usage data(raster_x_na)
+#' @format A matrix
+"raster_x_na"
 
-#' A RasterLayer with weights and missing values
-#'
-#' @format A RasterLayer
-"w_na"
+#' A matrix with weights and missing values
+#' @usage data(raster_w_na)
+#' @format A matrix
+"raster_w_na"

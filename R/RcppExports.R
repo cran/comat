@@ -44,6 +44,10 @@ rcpp_get_entropy <- function(x, base = "log2") {
     .Call(`_comat_rcpp_get_entropy`, x, base)
 }
 
+get_normalized <- function(x, normalization) {
+    .Call(`_comat_get_normalized`, x, normalization)
+}
+
 get_unique_values <- function(x, na_omit) {
     .Call(`_comat_get_unique_values`, x, na_omit)
 }
@@ -52,27 +56,64 @@ rcpp_get_cocoma <- function(x, y, directions) {
     .Call(`_comat_rcpp_get_cocoma`, x, y, directions)
 }
 
+rcpp_get_cocoma_internal <- function(x, y, directions, classes_x, classes_y) {
+    .Call(`_comat_rcpp_get_cocoma_internal`, x, y, directions, classes_x, classes_y)
+}
+
 rcpp_get_coma <- function(x, directions) {
     .Call(`_comat_rcpp_get_coma`, x, directions)
 }
 
-rcpp_get_cove <- function(x, ordered) {
-    .Call(`_comat_rcpp_get_cove`, x, ordered)
+rcpp_get_coma_internal <- function(x, directions, classes) {
+    .Call(`_comat_rcpp_get_coma_internal`, x, directions, classes)
 }
 
-#' Wecoma
-#'
-#' @param x A matrix.
-#' @param w A matrix.
-#' @param directions A matrix.
-#' @param fun "mean", "geometric_mean", or "focal".
-#' @param na_action "replace", "omit", "keep"
+rcpp_get_incoma <- function(x, directions) {
+    .Call(`_comat_rcpp_get_incoma`, x, directions)
+}
+
+rcpp_get_incoma_list <- function(x, directions, classes) {
+    .Call(`_comat_rcpp_get_incoma_list`, x, directions, classes)
+}
+
+rcpp_get_incoma_matrix <- function(x) {
+    .Call(`_comat_rcpp_get_incoma_matrix`, x)
+}
+
+rcpp_get_incoma_matrix_to_list <- function(x) {
+    .Call(`_comat_rcpp_get_incoma_matrix_to_list`, x)
+}
+
+rcpp_get_vec <- function(x, ordered, normalization) {
+    .Call(`_comat_rcpp_get_vec`, x, ordered, normalization)
+}
+
+rcpp_get_wecove <- function(x, ordered, normalization) {
+    .Call(`_comat_rcpp_get_wecove`, x, ordered, normalization)
+}
+
+rcpp_get_cove <- function(x, ordered, normalization) {
+    .Call(`_comat_rcpp_get_cove`, x, ordered, normalization)
+}
+
+rcpp_get_cocove <- function(x, ordered, normalization) {
+    .Call(`_comat_rcpp_get_cocove`, x, ordered, normalization)
+}
+
+is_cross_mat <- function(n_layers) {
+    .Call(`_comat_is_cross_mat`, n_layers)
+}
+
+rcpp_get_incove <- function(x, ordered, repeated, normalization) {
+    .Call(`_comat_rcpp_get_incove`, x, ordered, repeated, normalization)
+}
+
 rcpp_get_wecoma <- function(x, w, directions, fun, na_action) {
     .Call(`_comat_rcpp_get_wecoma`, x, w, directions, fun, na_action)
 }
 
-rcpp_get_wecove <- function(x, ordered) {
-    .Call(`_comat_rcpp_get_wecove`, x, ordered)
+rcpp_get_wecoma_internal <- function(x, w, directions, classes, fun, na_action) {
+    .Call(`_comat_rcpp_get_wecoma_internal`, x, w, directions, classes, fun, na_action)
 }
 
 triangular_index <- function(r, c) {
