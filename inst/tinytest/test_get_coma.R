@@ -33,6 +33,9 @@ t5 = structure(c(6L, 2L, 5L, 2L, 2L, 4L, 5L, 4L, 10L),
 
 expect_equivalent(r5, t5)
 
+mat1 = matrix(c(1, 2, 2, 2), ncol = 2)
+r6 = get_coma(mat1, 4)
+
 # dput(landscapemetrics::get_adjacencies(x, 4)[[1]])
 # dput(landscapemetrics:::rcpp_get_coocurrence_vector(as.matrix(x), as.matrix(4)))
 # dput(landscapemetrics:::rcpp_get_coocurrence_vector(as.matrix(x), as.matrix(4), ordered = FALSE))
