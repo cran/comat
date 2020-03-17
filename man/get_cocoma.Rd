@@ -4,7 +4,7 @@
 \alias{get_cocoma}
 \title{Create a co-located co-occurrence matrix (cocoma)}
 \usage{
-get_cocoma(x, y, neighbourhood = 4)
+get_cocoma(x, y, neighbourhood = 4, classes = NULL)
 }
 \arguments{
 \item{x}{A matrix with categories}
@@ -13,6 +13,9 @@ get_cocoma(x, y, neighbourhood = 4)
 
 \item{neighbourhood}{The number of directions in which cell adjacencies are considered as neighbours:
 4 (rook's case) or 8 (queen's case). The default is 4.}
+
+\item{classes}{A list of length 2 with the values of selected classes from the \code{x} and \code{y} objects.
+It is used to calculate cocoma only for selected classes.}
 }
 \value{
 A co-located co-occurrence matrix
@@ -28,4 +31,5 @@ data(raster_x_na, package = "comat")
 coom = get_cocoma(raster_x, raster_x_na)
 coom
 
+get_cocoma(raster_x, raster_x_na, classes = list(c(1, 2), 3))
 }

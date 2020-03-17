@@ -4,8 +4,14 @@
 \alias{get_wecoma}
 \title{Create a weighted co-occurrence matrix (wecoma)}
 \usage{
-get_wecoma(x, w, neighbourhood = 4, fun = "mean",
-  na_action = "replace")
+get_wecoma(
+  x,
+  w,
+  neighbourhood = 4,
+  classes = NULL,
+  fun = "mean",
+  na_action = "replace"
+)
 }
 \arguments{
 \item{x}{A matrix with categories}
@@ -14,6 +20,9 @@ get_wecoma(x, w, neighbourhood = 4, fun = "mean",
 
 \item{neighbourhood}{The number of directions in which cell adjacencies are considered as neighbours:
 4 (rook's case) or 8 (queen's case). The default is 4.}
+
+\item{classes}{A vector or a list with the values of selected classes from the \code{x} object.
+It is used to calculate wecoma only for selected classes.}
 
 \item{fun}{"mean", "geometric_mean", or "focal". The default is "mean".}
 
@@ -33,4 +42,5 @@ data(raster_w, package = "comat")
 wom = get_wecoma(raster_x, raster_w)
 wom
 
+get_wecoma(raster_x, raster_w, classes = list(c(1, 3)))
 }

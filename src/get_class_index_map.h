@@ -1,5 +1,6 @@
 #ifndef GET_CLASS_INDEX_MAP_H
 #define GET_CLASS_INDEX_MAP_H
+
 #include <vector>
 #include <map>
 

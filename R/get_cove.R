@@ -1,7 +1,7 @@
-#' Create a co-occurrence vector (wecove)
+#' Create a co-occurrence vector (cove)
 #'
-#' Converts a co-occurrence matrix (wecoma) to
-#' a co-occurrence vector (wecove)
+#' Converts a co-occurrence matrix (coma) to
+#' a co-occurrence vector (cove)
 #'
 #' @param x A matrix - an output of the [get_coma()] function
 #' @param ordered The type of pairs considered.
@@ -23,6 +23,9 @@
 #' com
 #'
 #' cov = get_cove(com)
+#' cov
+#'
+#' cov = get_cove(com, normalization = "pdf")
 #' cov
 get_cove = function(x, ordered = TRUE, normalization = "none"){
   rcpp_get_cove(x, ordered, normalization)

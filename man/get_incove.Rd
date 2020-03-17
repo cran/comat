@@ -2,10 +2,9 @@
 % Please edit documentation in R/get_incove.R
 \name{get_incove}
 \alias{get_incove}
-\title{Create an integrated co-occurrence vector (wecove)}
+\title{Create an integrated co-occurrence vector (incove)}
 \usage{
-get_incove(x, ordered = TRUE, repeated = TRUE,
-  normalization = "none")
+get_incove(x, ordered = TRUE, repeated = TRUE, normalization = "none")
 }
 \arguments{
 \item{x}{A matrix - an output of the \code{\link[=get_incoma]{get_incoma()}} function}
@@ -15,7 +14,7 @@ Either "ordered" (TRUE) or "unordered" (FALSE).
 The default is TRUE.}
 
 \item{repeated}{Should the repeated co-located co-occurrence matrices be used?
-Either "ordered" (TRUE) or "unordered" (FALSE).
+Either "repeated" (TRUE) or "unrepeated" (FALSE).
 The default is TRUE.}
 
 \item{normalization}{Should the output vector be normalized?
@@ -27,8 +26,8 @@ The default is "none".}
 An integrated co-occurrence vector
 }
 \description{
-Converts an integrated co-occurrence matrix (wecoma) to
-an integrated co-occurrence vector (wecove)
+Converts an integrated co-occurrence matrix (incoma) to
+an integrated co-occurrence vector (incove)
 }
 \examples{
 library(comat)
