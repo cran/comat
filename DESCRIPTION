@@ -1,6 +1,6 @@
 Package: comat
 Title: Creates Co-Occurrence Matrices of Spatial Data
-Version: 0.9.1
+Version: 0.9.2
 Authors@R: c(person(given = "Jakub", family = "Nowosad", role = c("aut", "cre"), email =
              "nowosad.jakub@gmail.com", comment = c(ORCID = "0000-0002-1057-3721")),
              person("Maximillian H.K.", "Hesselbarth",
@@ -34,7 +34,7 @@ URL: https://nowosad.github.io/comat/
 BugReports: https://github.com/Nowosad/comat/issues
 VignetteBuilder: knitr
 NeedsCompilation: yes
-Packaged: 2021-04-18 16:27:38 UTC; jn
+Packaged: 2021-10-14 14:45:28 UTC; jn
 Author: Jakub Nowosad [aut, cre] (<https://orcid.org/0000-0002-1057-3721>),
   Maximillian H.K. Hesselbarth [ctb] (Co-author of underlying C++ code
     for get_class_index_map(), get_unique_values(), and rcpp_get_coma()
@@ -47,4 +47,4 @@ Author: Jakub Nowosad [aut, cre] (<https://orcid.org/0000-0002-1057-3721>),
     functions)
 Maintainer: Jakub Nowosad <nowosad.jakub@gmail.com>
 Repository: CRAN
-Date/Publication: 2021-04-19 05:20:10 UTC
+Date/Publication: 2021-10-14 15:40:05 UTC

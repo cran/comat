@@ -1,4 +1,4 @@
-c10f246209eff16119eaabb18b236bca *DESCRIPTION
+ddb9feea7236ec9344a1d66c437462fa *DESCRIPTION
 9e3c4deb9218779cb65d1c274559cb16 *LICENSE
 be8ab84163b8c90e20f1a92110cdaa80 *NAMESPACE
 7a14fbc3e162cf7bbcdcc6ecf5658cf4 *NEWS.md
@@ -13,8 +13,8 @@ ae642c7d1ec05123985d5f3332103cf4 *R/get_incoma.R
 5095353ca2bc53d79cce138275d898a3 *R/get_incove.R
 c2db1cb5046be213a36168edffd61e4a *R/get_wecoma.R
 1a2aa289235fa192d2a0f1d7aa690983 *R/get_wecove.R
-12a5ed340e40b2a755cf20c84dd2d8ed *README.md
-12fd662ab41b33ac6c65f60c4e1e0496 *build/vignette.rds
+ed2b1cc848daa5f64a9bb3402efe2bfc *README.md
+e2c1d1ba858373ffa46c36d6ed655ab7 *build/vignette.rds
 c8f503683951cef657b6f99f7f3f58f7 *data/raster_w.rda
 5ec3fb2c75e3835d74e6c8b127e72e64 *data/raster_w_na.rda
 d6e135527594b9500e9a4d67cba693dc *data/raster_x.rda
@@ -23,15 +23,15 @@ d6e135527594b9500e9a4d67cba693dc *data/raster_x.rda
 d77942366a53357b5799b9c66af75e68 *inst/CITATION
 87c187d5068912c2ee8d7a8322b45616 *inst/doc/coma.R
 8bc10df90ee2d1b70d1bdfd3c50c6dc2 *inst/doc/coma.Rmd
-fdc7fa11de16036a31b511d1797b0a2c *inst/doc/coma.html
+a49efc9c561aeeb17acffc4db644118f *inst/doc/coma.html
 7ad86453efadbbcccf732520b48219fe *inst/doc/incoma.R
 7fd36371bc847eff7ac7b1aedca1a51c *inst/doc/incoma.Rmd
-a1273dfe810114ea3aa7e1a1e1707001 *inst/doc/incoma.html
+4eb24320e0c21d55fa7c5b92f6197dd0 *inst/doc/incoma.html
 518c9cfae98be48505c3cb866a78ed8c *inst/doc/wecoma.R
 9e2eae5e61ef79cd8f1b02ef1a5ff80b *inst/doc/wecoma.Rmd
-4aac5f3d654bca9ca0b704eef809ded1 *inst/doc/wecoma.html
+edbe946d2d608a4ec4438b3a21460773 *inst/doc/wecoma.html
 150e79661782aa04bd1e34c8e6884238 *inst/include/comat.h
-05654302bb0049db81d1d18f1b1288f5 *inst/include/comat_RcppExports.h
+843a632de039551fae96089fa6254e83 *inst/include/comat_RcppExports.h
 8155f08ac31092036890c99c41d3b4ae *inst/testdata/ll.rds
 35b0bb35f104616b4d2b25f3ca0e7366 *inst/tinytest/test_create_neighborhood.R
 3c68cf7a760295ab9fd89c4927332126 *inst/tinytest/test_get_cocoma.R
@@ -63,8 +63,8 @@ fae7a275f6561bc94d5977f7cf526356 *man/raster_x_na.Rd
 1e192a0e3e67b29ac526c5b0d1dcef04 *man/rcpp_xy_from_matrix.Rd
 c34070dbf7b71568215ad544f4cb0b29 *src/Makevars
 c34070dbf7b71568215ad544f4cb0b29 *src/Makevars.win
-72c7515f4ca02f5e748cc6ef9c73c297 *src/RcppExports.cpp
-400a5f93c0b07d59f5a978cefa2eb7d7 *src/create_neighborhood.cpp
+21f5e905266c2675b5a52868769e1dc5 *src/RcppExports.cpp
+bf9e017601e0a4fa0d4a1c9e3e844706 *src/create_neighborhood.cpp
 8e77f6818ec06295d2427da17a910e41 *src/create_neighborhood.h
 7521c58159d469a046b3ad2776e79660 *src/get_class_index_map.cpp
 dcc11b5712313872ab43c71bffb0e385 *src/get_class_index_map.h
