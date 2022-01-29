@@ -1,6 +1,6 @@
-ddb9feea7236ec9344a1d66c437462fa *DESCRIPTION
+51060e8da701d49530b1c68d1302fc81 *DESCRIPTION
 9e3c4deb9218779cb65d1c274559cb16 *LICENSE
-be8ab84163b8c90e20f1a92110cdaa80 *NAMESPACE
+c21a31c933c35cccc9fde1b028e17052 *NAMESPACE
 7a14fbc3e162cf7bbcdcc6ecf5658cf4 *NEWS.md
 06a37e4c8de244b64a5a61867253c678 *R/RcppExports.R
 b45b430fa4c6c771a030407a10cbf529 *R/comat-data.R
@@ -13,8 +13,9 @@ ae642c7d1ec05123985d5f3332103cf4 *R/get_incoma.R
 5095353ca2bc53d79cce138275d898a3 *R/get_incove.R
 c2db1cb5046be213a36168edffd61e4a *R/get_wecoma.R
 1a2aa289235fa192d2a0f1d7aa690983 *R/get_wecove.R
+dfaa66efa179dfb2f7255a74f69cbd4c *R/it_metric.R
 ed2b1cc848daa5f64a9bb3402efe2bfc *README.md
-e2c1d1ba858373ffa46c36d6ed655ab7 *build/vignette.rds
+a141d1368404230d041251f2ec42f024 *build/vignette.rds
 c8f503683951cef657b6f99f7f3f58f7 *data/raster_w.rda
 5ec3fb2c75e3835d74e6c8b127e72e64 *data/raster_w_na.rda
 d6e135527594b9500e9a4d67cba693dc *data/raster_x.rda
@@ -22,14 +23,14 @@ d6e135527594b9500e9a4d67cba693dc *data/raster_x.rda
 8dfe868c297799a81e107ba0e66e8f32 *data/raster_y.rda
 d77942366a53357b5799b9c66af75e68 *inst/CITATION
 87c187d5068912c2ee8d7a8322b45616 *inst/doc/coma.R
-8bc10df90ee2d1b70d1bdfd3c50c6dc2 *inst/doc/coma.Rmd
-a49efc9c561aeeb17acffc4db644118f *inst/doc/coma.html
+2c78ed76c9b7d0621794b593ed8a306b *inst/doc/coma.Rmd
+05fda9a7af931c4c88dc138aab1c90d9 *inst/doc/coma.html
 7ad86453efadbbcccf732520b48219fe *inst/doc/incoma.R
 7fd36371bc847eff7ac7b1aedca1a51c *inst/doc/incoma.Rmd
-4eb24320e0c21d55fa7c5b92f6197dd0 *inst/doc/incoma.html
+cca98104b918cbfce5e451e880631786 *inst/doc/incoma.html
 518c9cfae98be48505c3cb866a78ed8c *inst/doc/wecoma.R
 9e2eae5e61ef79cd8f1b02ef1a5ff80b *inst/doc/wecoma.Rmd
-edbe946d2d608a4ec4438b3a21460773 *inst/doc/wecoma.html
+3db8041b5cae7b4c0c0bfe51fe9c070b *inst/doc/wecoma.html
 150e79661782aa04bd1e34c8e6884238 *inst/include/comat.h
 843a632de039551fae96089fa6254e83 *inst/include/comat_RcppExports.h
 8155f08ac31092036890c99c41d3b4ae *inst/testdata/ll.rds
@@ -43,7 +44,7 @@ ba79f7a487ff7eccef8d772743780f2c *inst/tinytest/test_get_unique_values.R
 e44a6b523a9222f29add32dd616cfbd7 *inst/tinytest/test_get_wecoma.R
 fa0d7419d348c1347b31f9de85faba7e *inst/tinytest/test_rcpp_get_incoma.R
 014c70b3a5e0aa27fe61a48f3533efd1 *inst/tinytest/test_triangular_index.R
-bea0f44693a35d75a208b09ee75fbbab *man/comat-package.Rd
+9a18444493061ec4dc6e4e5ac6a1b0b3 *man/comat-package.Rd
 21d326fd5cefd61de5e4e90ab5860cfb *man/create_neighborhood.Rd
 dd795a1d20e91844c2d5b303c8a78444 *man/figures/README-unnamed-chunk-2-1.png
 cb855073c1f4fd194a66306deecfdf4e *man/get_cocoma.Rd
@@ -54,6 +55,7 @@ a22b14f06d83e589eb9d341c9d5bba21 *man/get_incoma.Rd
 8f004b5778e757da7607d260573b8b2d *man/get_incove.Rd
 d5aee3f0be91daa00b08cf2ebfde8b5d *man/get_wecoma.Rd
 0d50fafa219f546ceec29e22bd79c0d1 *man/get_wecove.Rd
+a4808d59145e577dcc2fe0734be6e326 *man/it_metric.Rd
 5911d9e7d345ef00c61dfb0dcb6cb282 *man/raster_w.Rd
 3124656d8a587f4ceb0d8ea4400f23e9 *man/raster_w_na.Rd
 5dbb7c87f113be917c5db477c65f1ace *man/raster_x.Rd
@@ -89,6 +91,6 @@ d4c7e49934a909829c3df0affed885e7 *src/rcpp_get_vec.cpp
 4be4267e1f10e88c3526d8a43ca4f733 *src/triangular_index.cpp
 f58ca1cf4d3cb9f3e0cbaf5bf895a556 *src/triangular_index.h
 1c8b26b3386849cebbaf4b53bc566277 *tests/tinytest.R
-8bc10df90ee2d1b70d1bdfd3c50c6dc2 *vignettes/coma.Rmd
+2c78ed76c9b7d0621794b593ed8a306b *vignettes/coma.Rmd
 7fd36371bc847eff7ac7b1aedca1a51c *vignettes/incoma.Rmd
 9e2eae5e61ef79cd8f1b02ef1a5ff80b *vignettes/wecoma.Rmd
