@@ -12,7 +12,7 @@
 
 <meta name="author" content="Jakub Nowosad" />
 
-<meta name="date" content="2023-04-04" />
+<meta name="date" content="2023-11-28" />
 
 <title>An integrated co-occurrence matrix (incoma) representation</title>
 
@@ -341,7 +341,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <h1 class="title toc-ignore">An integrated co-occurrence matrix (incoma)
 representation</h1>
 <h4 class="author">Jakub Nowosad</h4>
-<h4 class="date">2023-04-04</h4>
+<h4 class="date">2023-11-28</h4>
 
 
 
@@ -354,26 +354,26 @@ of Vadivel et al. (2007) and explained in details in Nowosad and
 Stepinski (2021). The examples below assume the <strong>comat</strong>
 package is attached, and the <code>raster_x</code> and
 <code>raster_y</code> datasets are loaded:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(comat)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(raster_x, <span class="at">package =</span> <span class="st">&quot;comat&quot;</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(raster_y, <span class="at">package =</span> <span class="st">&quot;comat&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(comat)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">data</span>(raster_x, <span class="at">package =</span> <span class="st">&quot;comat&quot;</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">data</span>(raster_y, <span class="at">package =</span> <span class="st">&quot;comat&quot;</span>)</span></code></pre></div>
 <p>The <code>raster_x</code> object is a matrix with three rows and
 columns with values of 1, 2, and 3.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>raster_x</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    1    1    3</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    1    3    3</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]    2    2    3</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>raster_x</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">#&gt; [1,]    1    1    3</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co">#&gt; [2,]    1    3    3</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co">#&gt; [3,]    2    2    3</span></span></code></pre></div>
 <p>We can imagine that the yellow color represents agriculture, green is
 forest, and orange color represents grassland.</p>
 <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYAAAAGACAMAAACTGUWNAAAACVBMVEUAZAC+lgD//2TOJ4vqAAAACXBIWXMAAA7DAAAOwwHHb6hkAAADT0lEQVR4nO3RMQEAMAyAsG7+RVdGjhIJMP+4h40OoDUAawDWAKwBWAOwBmANwBqANQBrANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmANwBqANQBrANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmANwBqANQBrANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmANwBqANQBrANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmANwBqANQBrANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmDnB+gAWgOwBmANwBqANQBrANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmANwBqANQBrANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmANwBqANQBrANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmANwBqANQBrANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmANwBqANQBrANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmANwBqANQBrANYAbK5rANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmANwBqANQBrANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmANwBqANQBrANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmANwBqANQBrANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmANwBqANQBrANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmANwBqANQBrANYArAFYA7AGYA3AGoDpAQvaOYAfb62YwAAAAABJRU5ErkJggg==" /><!-- --></p>
 <p>The <code>raster_y</code> object is also a matrix of the same
 dimensions. It has values 5 and 6.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>raster_y</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    5    5    5</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    6    6    5</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]    5    5    6</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>raster_y</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt; [1,]    5    5    5</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#&gt; [2,]    6    6    5</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt; [3,]    5    5    6</span></span></code></pre></div>
 <p>We can imagine that light yellow color represents flat plains and
 brown color represents mountains.</p>
 <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYAAAAGACAMAAACTGUWNAAAABlBMVEVyRQH8/8KRsnEDAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD5UlEQVR4nO3SQREAMAzDsIw/6cHQoxaCXty9UNMHXFcArABYAbACYAXACoAVACsAVgCsAFgBsAJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYArABYAbACYAXACoAVACsAVgCsAFgBsAJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYArABYAbACYAXACoAVACsAVgCsAFgBsAJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYArABYAbACYAXACoAVACsAVgCsAFgBsAJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYArABYAbACYAXACoAVACsAVgCsAFgBsAJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYArABYAbACYAXACoDtugJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYArABYAbACYAXACoAVACsAVgCsAFgBsAJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYArABYAbACYAXACoAVACsAVgCsAFgBsAJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYArABYAbACYAXACoAVACsAVgCsAFgBsAJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYArABYAbACYAXACoAVACsAVgCsAFgBsAJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYArABYAbACYAXACoAVACsAVgCsAFgBsAJgBcAKgBUAKwBWAKwAGA+gD9D0AxRA0wNoev8CaHoATe9fAE0PoOn9C6DpATS9fwE0PYCm9y+ApgfQ9P4F0PQAmt6/AJoeQNP7F0DTA2h6/wJoegBN718ATQ+g6f0LoOkBNL1/ATQ9gKb3L4CmB9D0/gXQ9ACa3r8Amh5A0/sXQNMDaHr/Amh6AE3vXwBND6Dp/Qug6QE0vX8BND2ApvcvgKYH0PT+BdD0AJrevwCaHkDT+xdA0wNoev8CaHoATe9fAE0PoOn9C6DpATS9fwE0PYCm9y+ApgfQ9P4F0PQAmt6/AJoeQNP7F0DTA2h6/wJoegBN718ATQ+g6f0LoOkBNL1/ATQ9gKb3L4CmB9D0/gXQ9ACa3r8Amh5A0/sXQNMDaHr/Amh6AE3vXwBND6Dp/Qug6QE0vX8BND2ApvcvgKYH0PT+BdD0AJrevwCaHkDT+xdA0wNoev8CaHoATe9fAE0PoOn9C6DpATS9fwE0PYCm9y+ApgfQ9P4F0PQAmt6/AJoeQNP7F0DTA2h6/wJoegBN718ATQ+g6f0LoOkBNL1/ATQ9gKb3L4CmB9D0/gXQ9ACa3r8A2Ad2AoAQvlfjKQAAAABJRU5ErkJggg==" /><!-- --></p>
@@ -386,15 +386,15 @@ in the second matrix for each cell in the first matrix.</p>
 <p>We can use the <code>get_incoma()</code> function to calculate this
 integrated co-occurrence matrix (<em>incoma</em>) representation. It
 requires a list of two or more matrices of the same dimensions.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_incoma</span>(<span class="fu">list</span>(raster_x, raster_y))</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   1 2 3 5 6</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 4 1 3 5 3</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 1 2 2 2 3</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 3 2 6 8 3</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 5 2 8 8 7</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 3 3 3 7 2</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; attr(,&quot;no_unique&quot;)</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 3 2</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">get_incoma</span>(<span class="fu">list</span>(raster_x, raster_y))</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#&gt;   1 2 3 5 6</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt; 1 4 1 3 5 3</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt; 2 1 2 2 2 3</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt; 3 3 2 6 8 3</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt; 5 5 2 8 8 7</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt; 6 3 3 3 7 2</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt; attr(,&quot;no_unique&quot;)</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt; [1] 3 2</span></span></code></pre></div>
 <p>The <em>incoma</em> representation, for two matrices, consists of
 four sectors:</p>
 <ol style="list-style-type: decimal">
@@ -418,16 +418,16 @@ to convert <em>incoma</em> to its 1D representation. This new form is
 called an integrated co-occurrence vector (<em>incove</em>), and can be
 created using the <code>get_incove()</code> function, which accepts an
 output of <code>get_incoma()</code>:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>my_incoma <span class="ot">=</span> <span class="fu">get_incoma</span>(<span class="fu">list</span>(raster_x, raster_y))</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">get_wecove</span>(my_incoma, <span class="at">normalization =</span> <span class="st">&quot;pdf&quot;</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;            [,1]       [,2]    [,3]       [,4]    [,5]       [,6]       [,7]</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,] 0.04166667 0.01041667 0.03125 0.05208333 0.03125 0.01041667 0.02083333</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;            [,8]       [,9]   [,10]   [,11]      [,12]  [,13]      [,14]   [,15]</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,] 0.02083333 0.02083333 0.03125 0.03125 0.02083333 0.0625 0.08333333 0.03125</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           [,16]      [,17]      [,18]      [,19]      [,20]   [,21]   [,22]</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,] 0.05208333 0.02083333 0.08333333 0.08333333 0.07291667 0.03125 0.03125</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        [,23]      [,24]      [,25]</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,] 0.03125 0.07291667 0.02083333</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>my_incoma <span class="ot">=</span> <span class="fu">get_incoma</span>(<span class="fu">list</span>(raster_x, raster_y))</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="fu">get_wecove</span>(my_incoma, <span class="at">normalization =</span> <span class="st">&quot;pdf&quot;</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co">#&gt;            [,1]       [,2]    [,3]       [,4]    [,5]       [,6]       [,7]</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co">#&gt; [1,] 0.04166667 0.01041667 0.03125 0.05208333 0.03125 0.01041667 0.02083333</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co">#&gt;            [,8]       [,9]   [,10]   [,11]      [,12]  [,13]      [,14]   [,15]</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="co">#&gt; [1,] 0.02083333 0.02083333 0.03125 0.03125 0.02083333 0.0625 0.08333333 0.03125</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="co">#&gt;           [,16]      [,17]      [,18]      [,19]      [,20]   [,21]   [,22]</span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="co">#&gt; [1,] 0.05208333 0.02083333 0.08333333 0.08333333 0.07291667 0.03125 0.03125</span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="co">#&gt;        [,23]      [,24]      [,25]</span></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="co">#&gt; [1,] 0.03125 0.07291667 0.02083333</span></span></code></pre></div>
 <div id="references" class="section level2">
 <h2>References</h2>
 <ul>

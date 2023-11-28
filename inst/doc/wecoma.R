@@ -1,4 +1,4 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -12,7 +12,7 @@ data(raster_w, package = "comat")
 ## -----------------------------------------------------------------------------
 raster_x
 
-## ---- echo=FALSE, fig.width=4, fig.height=4-----------------------------------
+## ----echo=FALSE, fig.width=4, fig.height=4------------------------------------
 op = par(mar = rep(0, 4))
 raster_x2 = apply(raster_x, 2, rev)
 image(1:3, 1:3, t(raster_x2),
@@ -24,7 +24,7 @@ par(op)
 ## -----------------------------------------------------------------------------
 raster_w
 
-## ---- echo=FALSE, fig.width=4, fig.height=4-----------------------------------
+## ----echo=FALSE, fig.width=4, fig.height=4------------------------------------
 op = par(mar = rep(0, 4))
 raster_w2 = apply(raster_w, 2, rev)
 image(1:3, 1:3, t(raster_w2),

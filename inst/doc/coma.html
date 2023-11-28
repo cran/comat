@@ -12,7 +12,7 @@
 
 <meta name="author" content="Jakub Nowosad" />
 
-<meta name="date" content="2023-04-04" />
+<meta name="date" content="2023-11-28" />
 
 <title>A co-occurrence matrix (coma) representation</title>
 
@@ -341,7 +341,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <h1 class="title toc-ignore">A co-occurrence matrix (coma)
 representation</h1>
 <h4 class="author">Jakub Nowosad</h4>
-<h4 class="date">2023-04-04</h4>
+<h4 class="date">2023-11-28</h4>
 
 
 
@@ -350,8 +350,8 @@ representation is and how to calculate it using the
 <strong>comat</strong> package. The examples below assume the
 <strong>comat</strong> package is attached, and the
 <code>raster_x</code> dataset is loaded:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(comat)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(raster_x, <span class="at">package =</span> <span class="st">&quot;comat&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(comat)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">data</span>(raster_x, <span class="at">package =</span> <span class="st">&quot;comat&quot;</span>)</span></code></pre></div>
 <p>Categorical raster data is used to store and analyze the spatial
 distribution of some distinct classes, such as land cover categories or
 soil classes. A simple example can be seen below:</p>
@@ -383,11 +383,11 @@ has.</p>
 <p>We can use the <code>get_coma()</code> function to calculate this
 co-occurrence matrix (<em>coma</em>) representation for our small
 raster:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_coma</span>(raster_x)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   1 2 3</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 4 1 3</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 1 2 2</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 3 2 6</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">get_coma</span>(raster_x)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co">#&gt;   1 2 3</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt; 1 4 1 3</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#&gt; 2 1 2 2</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt; 3 3 2 6</span></span></code></pre></div>
 <p>This output shows that cells of the first category are four times
 adjacent to other cells of this category, two times cells of the second
 category are adjacent to other cells of this category, and six times
@@ -404,19 +404,19 @@ having a shared side and are thus not simply joined via a corner.</p>
 composed of a central cell and its four adjacent cells (they share a
 border/side). However, it is also possible to use 8-neighborhood, where
 adjacent cells with shared corners are also used:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_coma</span>(raster_x, <span class="at">neighbourhood =</span> <span class="dv">8</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   1 2  3</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 6 2  5</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 2 2  4</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 5 4 10</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">get_coma</span>(raster_x, <span class="at">neighbourhood =</span> <span class="dv">8</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#&gt;   1 2  3</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt; 1 6 2  5</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt; 2 2 2  4</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt; 3 5 4 10</span></span></code></pre></div>
 <p>Finally, we are sometimes not interested in some spatial
 relationships. For example, we just want to know the relationship
 between agriculture and forest. Then we can adjust the
 <code>classes</code> argument in <code>get_coma()</code>:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_coma</span>(raster_x, <span class="at">classes =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   1 2</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 4 1</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 1 2</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">get_coma</span>(raster_x, <span class="at">classes =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="co">#&gt;   1 2</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co">#&gt; 1 4 1</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co">#&gt; 2 1 2</span></span></code></pre></div>
 <p>The co-occurrence matrix (<em>coma</em>) representation is
 two-dimensional, with values of categories in row and columns. It can be
 also converted into a one-dimensional representation called a
@@ -425,12 +425,12 @@ function. This function takes the output of <code>get_coma()</code> and
 restructure it into one row with many columns. It also makes it possible
 to normalize the output to sum to one
 (<code>normalization = &quot;pdf&quot;</code>).</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>my_coma <span class="ot">=</span> <span class="fu">get_coma</span>(raster_x)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">get_cove</span>(my_coma, <span class="at">normalization =</span> <span class="st">&quot;pdf&quot;</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           [,1]       [,2]  [,3]       [,4]       [,5]       [,6]  [,7]</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,] 0.1666667 0.04166667 0.125 0.04166667 0.08333333 0.08333333 0.125</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;            [,8] [,9]</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,] 0.08333333 0.25</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>my_coma <span class="ot">=</span> <span class="fu">get_coma</span>(raster_x)</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">get_cove</span>(my_coma, <span class="at">normalization =</span> <span class="st">&quot;pdf&quot;</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="co">#&gt;           [,1]       [,2]  [,3]       [,4]       [,5]       [,6]  [,7]</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co">#&gt; [1,] 0.1666667 0.04166667 0.125 0.04166667 0.08333333 0.08333333 0.125</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co">#&gt;            [,8] [,9]</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="co">#&gt; [1,] 0.08333333 0.25</span></span></code></pre></div>
 <p>This representation can be useful to compare many areas with each
 other using measures of the similarity between two probability
 distributions, such as Jensen–Shannon divergence.</p>
