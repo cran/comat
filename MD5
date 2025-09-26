@@ -1,7 +1,7 @@
-e026f051eb3ff9fd4744fa9714cd5699 *DESCRIPTION
+81d48fb66e3db5880443bd9c488e1402 *DESCRIPTION
 9e3c4deb9218779cb65d1c274559cb16 *LICENSE
 c21a31c933c35cccc9fde1b028e17052 *NAMESPACE
-c148b9b1b6d616192a851f658170ddac *NEWS.md
+6d657bb02606c47db40f226879250cb8 *NEWS.md
 3f2a6b05d17ec7af90e451627f04b3e1 *R/RcppExports.R
 b45b430fa4c6c771a030407a10cbf529 *R/comat-data.R
 afa3855555f276115a89a1b0d32e4cc3 *R/comat-package.R
@@ -15,8 +15,8 @@ c2db1cb5046be213a36168edffd61e4a *R/get_wecoma.R
 1a2aa289235fa192d2a0f1d7aa690983 *R/get_wecove.R
 dfaa66efa179dfb2f7255a74f69cbd4c *R/it_metric.R
 e29a06a8b480a981dbbad8bac7fce7da *README.md
-8faf250d78a120ba4c7ea2186efddd24 *build/partial.rdb
-f54d1565dfc3a2b98561df6db583096c *build/vignette.rds
+af3401175684b1e7ff4b3d3b8941c6eb *build/partial.rdb
+059b3f43cb00a208f93911b97a935283 *build/vignette.rds
 c8f503683951cef657b6f99f7f3f58f7 *data/raster_w.rda
 5ec3fb2c75e3835d74e6c8b127e72e64 *data/raster_w_na.rda
 d6e135527594b9500e9a4d67cba693dc *data/raster_x.rda
@@ -25,13 +25,13 @@ d6e135527594b9500e9a4d67cba693dc *data/raster_x.rda
 50777b496c41b50e7571623a49a42378 *inst/CITATION
 9e09eea921f0b7ec08f311d9103b0e17 *inst/doc/coma.R
 2c78ed76c9b7d0621794b593ed8a306b *inst/doc/coma.Rmd
-9f3e2e0c93d05781c93c1f6be5fb3ec0 *inst/doc/coma.html
+d16823f6e461df92656ba46022a04ec9 *inst/doc/coma.html
 4e2a54a24acc4a947606d7cc2403d14a *inst/doc/incoma.R
 7fd36371bc847eff7ac7b1aedca1a51c *inst/doc/incoma.Rmd
-4ad510c2be3fa990bd2cf36e89640b52 *inst/doc/incoma.html
+17f7ca2998d9164e2e0443826dc45fdf *inst/doc/incoma.html
 886204c14af3abd9c06751a3e005cb4a *inst/doc/wecoma.R
 46b1d6c904a5b29b5f59586f07f6c340 *inst/doc/wecoma.Rmd
-04b65cd4212e6e298939831d49f6cd6f *inst/doc/wecoma.html
+729fc54508db53332c9fda511073a03e *inst/doc/wecoma.html
 150e79661782aa04bd1e34c8e6884238 *inst/include/comat.h
 843a632de039551fae96089fa6254e83 *inst/include/comat_RcppExports.h
 8155f08ac31092036890c99c41d3b4ae *inst/testdata/ll.rds
@@ -67,7 +67,7 @@ fae7a275f6561bc94d5977f7cf526356 *man/raster_x_na.Rd
 56699749fa55ef56d0b294c24b9352dc *src/Makevars
 56699749fa55ef56d0b294c24b9352dc *src/Makevars.win
 b0f35bce97e7e2417a20ae10798db3a1 *src/RcppExports.cpp
-bf9e017601e0a4fa0d4a1c9e3e844706 *src/create_neighborhood.cpp
+18c380891132f40023c49f4c794355fd *src/create_neighborhood.cpp
 8e77f6818ec06295d2427da17a910e41 *src/create_neighborhood.h
 7521c58159d469a046b3ad2776e79660 *src/get_class_index_map.cpp
 dcc11b5712313872ab43c71bffb0e385 *src/get_class_index_map.h
@@ -87,7 +87,7 @@ ad5f05f5f5af9b309559f8580eb6e130 *src/rcpp_get_coma.h
 ad49e2aaf45542c1fbf7542b43011af2 *src/rcpp_get_incoma.h
 d4c7e49934a909829c3df0affed885e7 *src/rcpp_get_vec.cpp
 0713f84a748bb9b9b2389ba956598f71 *src/rcpp_get_vec.h
-1ca5c3be69341acb0ce8cc2e2545ea13 *src/rcpp_get_wecoma.cpp
+928f4f8b47f8908e6086360d6492ee97 *src/rcpp_get_wecoma.cpp
 67f85b83429afc46f9191679dfaf2505 *src/rcpp_get_wecoma.h
 4be4267e1f10e88c3526d8a43ca4f733 *src/triangular_index.cpp
 f58ca1cf4d3cb9f3e0cbaf5bf895a556 *src/triangular_index.h

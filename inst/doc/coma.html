@@ -12,7 +12,7 @@
 
 <meta name="author" content="Jakub Nowosad" />
 
-<meta name="date" content="2023-11-28" />
+<meta name="date" content="2025-09-25" />
 
 <title>A co-occurrence matrix (coma) representation</title>
 
@@ -50,6 +50,7 @@ overflow: visible;
 }
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -341,7 +342,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <h1 class="title toc-ignore">A co-occurrence matrix (coma)
 representation</h1>
 <h4 class="author">Jakub Nowosad</h4>
-<h4 class="date">2023-11-28</h4>
+<h4 class="date">2025-09-25</h4>
 
 
 
@@ -355,7 +356,7 @@ representation is and how to calculate it using the
 <p>Categorical raster data is used to store and analyze the spatial
 distribution of some distinct classes, such as land cover categories or
 soil classes. A simple example can be seen below:</p>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYAAAAGACAMAAACTGUWNAAAACVBMVEUARsgAZAD//2SYsk4VAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAEfElEQVR4nO3RMQEAMAzDsG78QReGjloMEs8/bjR9gKb/L4CmD9D0/wXQ9AGa/r8Amj5A0/8XQNMHaPr/Amj6AE3/XwBNH6Dp/wug6QM0/X8BNH2Apv8vgKYP0PT/BdD0AZr+vwCaPkDT/xdA0wdo+v8CaPoATf9fAE0foOn/C6DpAzT9fwE0fYCm/y+Apg/Q9P8F0PQBmv6/AJo+QNP/F0DTB2j6/wJo+gBN/18ATR+g6f8LoOkDNP1/ATR9gKb/L4CmD9D0/wXQ9AGa/r8Amj5A0/8XQNMHaPr/Amj6AE3/XwBNH6Dp/wug6QM0/X8BNH2Apv8vgKYP0PT/BdD0AZr+vwCaPkDT/xdA0wdo+v8CaPoATf9fAE0foOn/C6DpAzT9fwE0fYCm/y+Apg/Q9P8F0PQBmv6/AJo+QNP/F0DTB2j6/wJo+gBN/18ATR+g6f8LoOkDNP1/ATR9gKb/L4CmD9D0/wXQ9AGa/r8Amj5A0/8XQNMHaPr/Amj6AE3/XwBNH6Dp/wug6QM0/X8BNH2Apv8vgKYP0PT/BdD0AZr+vwCaPkDT/xdA0wdo+v8CaPoATf9fAE0foOn/C6DpAzT9Pw+g93MFwAqAFQArAFYArABYAbACYAXACoAVACsAVgCsAFgBsAJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYArABYAbACYAXACoAVACsAVgCsAFgBsAJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYArABYAbACYAXACoAVACsAVgCsAFgBsAJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYArABYAbACYAXACoAVACsAVgCsAFgBsAJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYArABYAbACYAXACoAVACsAVgCsAFgBsAJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYArABYAbB3nP6/AJo+QNP/F0DTB2j6/wJo+gBN/18ATR+g6f8LoOkDNP1/ATR9gKb/L4CmD9D0/wXQ9AGa/r8Amj5A0/8XQNMHaPr/Amj6AE3/XwBNH6Dp/wug6QM0/X8BNH2Apv8vgKYP0PT/BdD0AZr+vwCaPkDT/xdA0wdo+v8CaPoATf9fAE0foOn/C6DpAzT9fwE0fYCm/y+Apg/Q9P8F0PQBmv6/AJo+QNP/F0DTB2j6/wJo+gBN/18ATR+g6f8LoOkDNP1/ATR9gKb/L4CmD9D0/wXQ9AGa/r8Amj5A0/8XQNMHaPr/Amj6AE3/XwBNH6Dp/wug6QM0/X8BNH2Apv8vgKYP0PT/BdD0AZr+vwCaPkDT/xdA0wdo+v8CaPoATf9fAE0foOn/C6DpAzT9fwE0fYCm/y+Apg/Q9P8F0PQBmv6/AJo+QNP/F0DTB2j6/wJo+gBN/18ATR+g6f8LoOkDNP1/ATR9gKb/L4CmD9D0/wXQ9AGa/r8Amj5A0/8XQNMHaPr/Amj6AE3/XwBNH6Dp/wug6QM0/X8BNH2Apv8vgKYP0PT/BcAWx4cAHz06gJcAAAAASUVORK5CYII=" /><!-- --></p>
+<p><img role="img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYAAAAGAAgMAAADZqV0sAAAACVBMVEUARsgAZAD//2SYsk4VAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAoklEQVR42u3NMREAIAwEsDeJSVRWAsNP9BIDyS3lRSAQCAQCgUAgEAgEAoFAIBAIBAKBQCAQCAQCgUAgEAgEAoFAIBAIBALB+iAtgUAgEAgEAoFAIBAIBAKBQCAQCAQCgUAgEAgEAoFAIBAIBAKBQCAQCATfB6ckEAgEAoFAIBAIBAKBQCAQCAQCgUAgEAgEAoFAIBAIBAKBQCAQCAQCgWB9MCuKgndW9RRSAAAAAElFTkSuQmCC" /><!-- --></p>
 <p>We can imagine that yellow color represents agriculture, green is
 forest, and blue represents water. However, this data is not stored as a
 set of colors, but rather as a matrix, where each value can be connected

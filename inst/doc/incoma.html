@@ -12,7 +12,7 @@
 
 <meta name="author" content="Jakub Nowosad" />
 
-<meta name="date" content="2023-11-28" />
+<meta name="date" content="2025-09-25" />
 
 <title>An integrated co-occurrence matrix (incoma) representation</title>
 
@@ -50,6 +50,7 @@ overflow: visible;
 }
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -341,7 +342,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <h1 class="title toc-ignore">An integrated co-occurrence matrix (incoma)
 representation</h1>
 <h4 class="author">Jakub Nowosad</h4>
-<h4 class="date">2023-11-28</h4>
+<h4 class="date">2025-09-25</h4>
 
 
 
@@ -366,7 +367,7 @@ columns with values of 1, 2, and 3.</p>
 <span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co">#&gt; [3,]    2    2    3</span></span></code></pre></div>
 <p>We can imagine that the yellow color represents agriculture, green is
 forest, and orange color represents grassland.</p>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYAAAAGACAMAAACTGUWNAAAACVBMVEUAZAC+lgD//2TOJ4vqAAAACXBIWXMAAA7DAAAOwwHHb6hkAAADT0lEQVR4nO3RMQEAMAyAsG7+RVdGjhIJMP+4h40OoDUAawDWAKwBWAOwBmANwBqANQBrANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmANwBqANQBrANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmANwBqANQBrANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmANwBqANQBrANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmANwBqANQBrANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmDnB+gAWgOwBmANwBqANQBrANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmANwBqANQBrANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmANwBqANQBrANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmANwBqANQBrANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmANwBqANQBrANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmANwBqANQBrANYAbK5rANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmANwBqANQBrANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmANwBqANQBrANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmANwBqANQBrANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmANwBqANQBrANYArAFYA7AGYA3AGoA1AGsA1gCsAVgDsAZgDcAagDUAawDWAKwBWAOwBmANwBqANQBrANYArAFYA7AGYA3AGoDpAQvaOYAfb62YwAAAAABJRU5ErkJggg==" /><!-- --></p>
+<p><img role="img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYAAAAGAAgMAAADZqV0sAAAACVBMVEUAZAC+lgD//2TOJ4vqAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAoklEQVR42u3NMREAMAgEMExiEpWV0OEnuMRAakL9UQKBQCAQCAQCgUAgEAgEAoFAIBAIBAKBQCAQCAQCgUAgEAgEAoFAIBAIzgcdEggEAoFAIBAIBAKBQCAQCAQCgUAgEAgEAoFAIBAIBAKBQCAQCAQCgUCwP0gJBAKBQCAQCAQCgUAgEAgEAoFAIBAIBAKBQCAQCAQCgUAgEAgEAoFAIDgfPIRPIxzhChy2AAAAAElFTkSuQmCC" /><!-- --></p>
 <p>The <code>raster_y</code> object is also a matrix of the same
 dimensions. It has values 5 and 6.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>raster_y</span>
@@ -376,7 +377,7 @@ dimensions. It has values 5 and 6.</p>
 <span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt; [3,]    5    5    6</span></span></code></pre></div>
 <p>We can imagine that light yellow color represents flat plains and
 brown color represents mountains.</p>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYAAAAGACAMAAACTGUWNAAAABlBMVEVyRQH8/8KRsnEDAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD5UlEQVR4nO3SQREAMAzDsIw/6cHQoxaCXty9UNMHXFcArABYAbACYAXACoAVACsAVgCsAFgBsAJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYArABYAbACYAXACoAVACsAVgCsAFgBsAJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYArABYAbACYAXACoAVACsAVgCsAFgBsAJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYArABYAbACYAXACoAVACsAVgCsAFgBsAJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYArABYAbACYAXACoAVACsAVgCsAFgBsAJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYArABYAbACYAXACoDtugJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYArABYAbACYAXACoAVACsAVgCsAFgBsAJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYArABYAbACYAXACoAVACsAVgCsAFgBsAJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYArABYAbACYAXACoAVACsAVgCsAFgBsAJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYArABYAbACYAXACoAVACsAVgCsAFgBsAJgBcAKgBUAKwBWAKwAWAGwAmAFwAqAFQArAFYArABYAbACYAXACoAVACsAVgCsAFgBsAJgBcAKgBUAKwBWAKwAGA+gD9D0AxRA0wNoev8CaHoATe9fAE0PoOn9C6DpATS9fwE0PYCm9y+ApgfQ9P4F0PQAmt6/AJoeQNP7F0DTA2h6/wJoegBN718ATQ+g6f0LoOkBNL1/ATQ9gKb3L4CmB9D0/gXQ9ACa3r8Amh5A0/sXQNMDaHr/Amh6AE3vXwBND6Dp/Qug6QE0vX8BND2ApvcvgKYH0PT+BdD0AJrevwCaHkDT+xdA0wNoev8CaHoATe9fAE0PoOn9C6DpATS9fwE0PYCm9y+ApgfQ9P4F0PQAmt6/AJoeQNP7F0DTA2h6/wJoegBN718ATQ+g6f0LoOkBNL1/ATQ9gKb3L4CmB9D0/gXQ9ACa3r8Amh5A0/sXQNMDaHr/Amh6AE3vXwBND6Dp/Qug6QE0vX8BND2ApvcvgKYH0PT+BdD0AJrevwCaHkDT+xdA0wNoev8CaHoATe9fAE0PoOn9C6DpATS9fwE0PYCm9y+ApgfQ9P4F0PQAmt6/AJoeQNP7F0DTA2h6/wJoegBN718ATQ+g6f0LoOkBNL1/ATQ9gKb3L4CmB9D0/gXQ9ACa3r8A2Ad2AoAQvlfjKQAAAABJRU5ErkJggg==" /><!-- --></p>
+<p><img role="img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYAAAAGAAQMAAACeCSf8AAAABlBMVEVyRQH8/8KRsnEDAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAWklEQVR42u3ZMREAAAgDMfybBgf0uuf3KPjZsgEAAAAAAAAAAAAAAAAAAAAAAAggBQAAAAAAAAAAAAAAAAAAAAAA0IJ6UAAAAAAAAAAAAAAAAAAAAAAAAPzgALVW0sKGd0ipAAAAAElFTkSuQmCC" /><!-- --></p>
 <p>The integrated co-occurrence matrix (<em>incoma</em>) representation
 consists of co-occurrence matrices (<em>coma</em>) and co-located
 co-occurrence matrices (<em>cocoma</em>). In the co-occurrence matrix,
